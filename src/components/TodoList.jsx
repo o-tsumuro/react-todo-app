@@ -1,4 +1,4 @@
-import TodoItem from '.TodoItem';
+import TodoItem from './TodoItem';
 
 function TodoList({ todos }) {
   if (todos.length === 0) return <p>やることがありません。</p>;
