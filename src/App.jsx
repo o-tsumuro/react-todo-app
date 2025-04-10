@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TodoForm from './components/TodoForm';
@@ -20,7 +21,7 @@ function App() {
      localStorage.setItem('my-todos', JSON.stringify(todos));
   }, [todos]);
 
-  const AddTodo = (text) => {
+  const addTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text, done:false }]);
   };
 
@@ -40,8 +41,20 @@ function App() {
     <div style={{ paddingBottom: '60px' }}>
       <Header />
       <main style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-        <TodoForm onAdd={AddTodo} />
-        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <TodoPage
+                todos={todos}
+                addTodo={addTodo}
+                toggleTodo={toggleTodo}
+                deleteTodo={deleteTodo}
+              />
+            }
+          />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>
