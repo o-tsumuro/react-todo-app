@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
+import styles from './TodoPage.module.css';
 
 function TodoPage({ todos, addTodo, toggleTodo, deleteTodo, editTodo }) {
   const [filter, setFilter] = useState('all');
@@ -15,26 +16,19 @@ function TodoPage({ todos, addTodo, toggleTodo, deleteTodo, editTodo }) {
     <div>
       <TodoForm onAdd={addTodo} />
 
-      <div style={{ marginBottom: '10px' }}>
-        <button
-          onClick={() => setFilter('all')}
-          style={{ marginRight: '5px', fontWeight: filter === 'all' ? 'bold' : 'normal' }}
-        >
-          全て
-        </button>
-        <button
-          onClick={() => setFilter('notYet')}
-          style={{ marginRight: '5px', fontWeight: filter === 'notYet' ? 'bold' : 'normal' }}
-        >
-          未完了
-        </button>
-        <button
-          onClick={() => setFilter('done')}
-          style={{ fontWeight: filter === 'done' ? 'bold' : 'normal' }}
-        >
-          完了
-        </button>
-      </div>
+        <div className={styles.filterButtons}>
+          {['all', 'notYet', 'done'].map((f) => {
+            return (
+              <button
+                key={f}
+                className={`${styles.filterButton} ${filter === f ? styles.active : ''}`}
+                onClick={() => setFilter(f)}
+              >
+                {f === 'all' ? 'すべて' : f === 'notYet' ? '未完了' : '完了'}
+              </button>
+            );
+          })}
+        </div>
 
       <TodoList
         todos={filteredTodos}
