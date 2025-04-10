@@ -9,6 +9,14 @@ function App() {
     setTodos([...todos, { id: Date.now(), text }]);
   }
 
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? {...todo, done: !todo.done } : todo
+      )
+    );
+  };
+
   return (
     <div>
       <h1>TODO</h1>
