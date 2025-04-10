@@ -36,7 +36,19 @@ function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
         </button>
       </div>
 
-      <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <TodoList
+        todos={filteredTodos}
+        onToggle={toggleTodo}
+        onDelete={deleteTodo}
+        onEdit={(id, newText) => {
+          const updated = todos.map(todo =>
+            todo.id === id ? { ...todo, text: newText } : todo
+          );
+          addTodo("");
+          deleteTodo("");
+          setTodos(updated);
+        }}
+      />
     </div>
   );
 }
