@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
@@ -35,10 +37,13 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>TODO</h1>
-      <TodoForm onAdd={AddTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+    <div style={{ paddingBottom: '60px' }}>
+      <Header />
+      <main style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+        <TodoForm onAdd={AddTodo} />
+        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      </main>
+      <Footer />
     </div>
   );
 }
