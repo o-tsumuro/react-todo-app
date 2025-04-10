@@ -25,7 +25,7 @@ function App() {
     <div>
       <h1>TODO</h1>
       <TodoForm onAdd={AddTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   );
 }
