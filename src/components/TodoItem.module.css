@@ -1,0 +1,67 @@
+.todoItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkbox {
+    margin-right: 10px;
+  }
+  
+  .todoText {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .editing {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .editInput {
+    padding: 5px;
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  .saveButton {
+    padding: 5px 10px;
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .cancelButton {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .editButton {
+    padding: 5px 10px;
+    background-color: #ffeb3b;
+    color: black;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .deleteButton {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
