@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './TodoItem.module.css';
 
 function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -10,40 +11,33 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   }
 
   return (
-    <li style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+    <li className={styles.todoItem}>
       <input
         type="checkbox"
         checked={todo.done}
         onChange={() => onToggle(todo.id)}
+        className={styles.checkbox}
       />
 
       {isEditing ? (
-        <>
+        <div className={styles.editing}>
           <input
             type="text"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
-            style={{ marginLeft: '8px', flex: 1 }}
+            className={styles.editInput}
           />
-          <button onClick={handleSave} style={{ marginLeft: '5px' }}>保存</button>
-          <button onClick={() => setIsEditing(false)}>キャンセル</button>
-        </>
+          <button onClick={handleSave} className={styles.saveButton}>保存</button>
+          <button onClick={() => setIsEditing(false)} className={styles.cancelButton}>キャンセル</button>
+        </div>
       ) : (
-        <>
-          <span
-            style={{
-              marginLeft: '8px',
-              flex: 1,
-              textDecoration: todo.done ? 'line-through' : 'none',
-            }}
-          >
+        <div className={styles.todoText}>
+          <span style={{ textDecoration: todo.done ? 'line-through' : 'none', flex: 1 }}>
             {todo.text}
           </span>
-          <button onClick={() => setIsEditing(true)} style={{ marginLeft: '5px' }}>
-            編集
-          </button>
-          <button onClick={() => onDelete(todo.id)}>削除</button>
-        </>
+          <button onClick={() => setIsEditing(true)} className={styles.editButton}>編集</button>
+          <button onClick={() => onDelete(todo.id)} className={styles.deleteButton}>削除</button>
+        </div>
       )}
     </li>
   );
