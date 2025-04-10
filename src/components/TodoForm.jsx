@@ -18,6 +18,7 @@ function TodoForm({ onAdd }) {
         onChange={e => setText(e.target.value)}
         placeholder="やることを入力"
       />
+      <button type="submit">追加</button>
     </form>
   );
 }
