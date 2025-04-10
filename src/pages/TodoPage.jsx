@@ -16,9 +16,24 @@ function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
       <TodoForm onAdd={addTodo} />
 
       <div style={{ marginBottom: '10px' }}>
-        <button onClick={() => setFilter('all')}>全て</button>
-        <button onClick={() => setFilter('notYet')}>未完了</button>
-        <button onClick={() => setFilter('done')}>完了</button>
+        <button
+          onClick={() => setFilter('all')}
+          style={{ marginRight: '5px', fontWeight: filter === 'all' ? 'bold' : 'normal' }}
+        >
+          全て
+        </button>
+        <button
+          onClick={() => setFilter('notYet')}
+          style={{ marginRight: '5px', fontWeight: filter === 'notYet' ? 'bold' : 'normal' }}
+        >
+          未完了
+        </button>
+        <button
+          onClick={() => setFilter('done')}
+          style={{ fontWeight: filter === 'done' ? 'bold' : 'normal' }}
+        >
+          完了
+        </button>
       </div>
 
       <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
