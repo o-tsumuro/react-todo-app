@@ -6,7 +6,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const AddTodo = (text) => {
-    setTodos([...todos, { id: Date.now(), text }]);
+    setTodos([...todos, { id: Date.now(), text, done:false }]);
   };
 
   const toggleTodo = (id) => {
