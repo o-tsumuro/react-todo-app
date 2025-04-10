@@ -32,10 +32,17 @@ export default function useTodos() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  const editTodo = (id, newText) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    ));
+  };
+
   return {
     todos,
     addTodo,
     toggleTodo,
     deleteTodo,
+    editTodo,
   };
 }

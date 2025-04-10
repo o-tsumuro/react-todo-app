@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 
-function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
+function TodoPage({ todos, addTodo, toggleTodo, deleteTodo, editTodo }) {
   const [filter, setFilter] = useState('all');
 
   const filteredTodos = todos.filter(todo => {
@@ -40,14 +40,7 @@ function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
         todos={filteredTodos}
         onToggle={toggleTodo}
         onDelete={deleteTodo}
-        onEdit={(id, newText) => {
-          const updated = todos.map(todo =>
-            todo.id === id ? { ...todo, text: newText } : todo
-          );
-          addTodo("");
-          deleteTodo("");
-          setTodos(updated);
-        }}
+        onEdit={editTodo}
       />
     </div>
   );
