@@ -1,0 +1,21 @@
+.filterButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filterButton {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  .filterButton.active {
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+  }
+  
