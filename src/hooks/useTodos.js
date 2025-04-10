@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 export default function useTodos() {
   const [todos, setTodos] = useState([]);
 
+  // 初回マウント時にlocalStorageから読み込む
   useEffect(() => {
     const saved = localStorage.getItem('my-todos');
     if (saved) {
@@ -10,6 +11,7 @@ export default function useTodos() {
     }
   }, []);
 
+  // todosが変更されるたびに保存
   useEffect(() => {
     localStorage.setItem('my-todos', JSON.stringify(todos));
   }, [todos]);
