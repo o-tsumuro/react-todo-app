@@ -7,7 +7,7 @@ function App() {
 
   const AddTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text }]);
-  }
+  };
 
   const toggleTodo = (id) => {
     setTodos(
@@ -15,6 +15,10 @@ function App() {
         todo.id === id ? {...todo, done: !todo.done } : todo
       )
     );
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
   return (
