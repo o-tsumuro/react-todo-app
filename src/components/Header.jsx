@@ -6,7 +6,8 @@ function Header() {
     <header className={styles.header}>
       <h1>TODOアプリ</h1>
       <nav>
-        <Link to="/" className={styles.link}>Home</Link> |{' '}
+        <Link to="/" className={styles.link}>Home</Link>
+        {' | '}
         <Link to="/about" className={styles.link}>About</Link>
       </nav>
     </header>
